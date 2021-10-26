@@ -1,9 +1,13 @@
 #ifndef stateMachine_included
 #define stateMachine_included
 
-void noteUpdate();
+void americaUpdate();
+void americaCounter();
+void halloweenUpdate();
+void halloweenCounter();
 void blinkUpdate();
+void blinkCounter();
 void stateChange(int state);
-void timeAdvStateMachine();
+void timeSM();
 
 #endif // included

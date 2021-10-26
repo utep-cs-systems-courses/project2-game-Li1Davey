@@ -29,7 +29,7 @@ clean: $^
 buzzer.o: buzzer.h
 switch.o: switch.h stateMachine.h
 stateMachine.o: stateMachine.h buzzer.h led.h switch.h sheetMusic.h
-main.o: buzzer.h led.h switch.h
+main.o: buzzer.h led.h switch.h stateMachine.h
 lightControl-c.o: led.h
 lightControl-s.o: led.h
 

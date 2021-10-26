@@ -3,6 +3,7 @@
 #include "buzzer.h"
 #include "led.h"
 #include "switch.h"
+#include "stateMachine.h"
 
 
 void led_init(){
@@ -25,5 +26,5 @@ int main() {
 
 void __interrupt_vec(WDT_VECTOR) WDT()	/* 250 interrupts/sec */
 {
-    timeAdvStateMachines();
+    timeSM();
 }
