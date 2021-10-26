@@ -24,3 +24,8 @@ frequency gets and brighter as it gets lower.
 
 4) After you stop a song with S4, when you try to play the same song it will
 start from the beginning, not where you left off.
+
+5) To configure the C file to the msp430 type _make load_ on the console. To
+configure the assembly file to the msp430 type _make load2_ on the
+console. Please note that these files only change what language is used to
+switch what LED is off or on. 
