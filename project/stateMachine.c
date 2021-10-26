@@ -29,9 +29,6 @@ void americaUpdate(){//edit play
     buzzer_set_period(americaNotes[indAma]);
     holdAma = americaHold[indAma];
     indAma++;
-    if(indAma == 43){
-      indAma = 0;
-    }
   }
 
   americaCounter();
@@ -44,6 +41,9 @@ void americaCounter(){
   if(halfCountAma >= 125){
     holdAma --;
     if(!holdAma){
+      if(indAma == 43){
+	button = 4;
+      }
       playAma = 2;
       lightControl(0);
       buzzer_set_period(0);
@@ -73,9 +73,6 @@ void halloweenUpdate(){//edit play
     buzzer_set_period(halloweenNotes[indHal]);
     holdHal = halloweenHold[indHal];
     indHal++;
-    if(indHal == 63){
-      indHal = 0;
-    }
   }
 
   halloweenCounter();
@@ -88,6 +85,9 @@ void halloweenCounter(){
   if(halfCountHal >= 62){
     holdHal --;
     if(!holdHal){
+      if(indHal == 63){
+	button = 4;
+      }
       playHal = 2;
       lightControl(0);
       buzzer_set_period(0);
@@ -134,14 +134,28 @@ void blinkCounter(){
     else{
       blinkLimit--;
       if(blinkLimit <= -1){
-	getDim = 0;
-	blinkLimit = 0;
+	button = 4;
       }
     }
   }
 }
 
 void stopUpdates(){
+  halfCountAma = 0;
+  playAma = 2;
+  indAma = 0;
+  holdAma = 0;
+
+  halfCountHal = 0;
+  playHal = 2;
+  indHal = 0;
+  holdHal = 0;
+
+  secondCount = 0;
+  blinkCount = 0;
+  blinkLimit = 0;
+  getDim = 0;
+
   buzzer_set_period(0);
   lightControl(0);
 }
