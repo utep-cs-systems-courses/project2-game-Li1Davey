@@ -34,4 +34,3 @@ lightControl-c.o: led.h
 lightControl-s.o: led.h
 
 wdInterruptHandler.o: stateMachine.h
-
