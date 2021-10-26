@@ -10,10 +10,10 @@ AS              = msp430-elf-as
 all: main.elf 
 
 #additional rules for files
-main.elf: main.o buzzer.o lightControl-c.o
+main.elf: main.o buzzer.o switch.o stateMachine.o lightControl-c.o
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ ./lib/libTimer.a
 
-main-s.elf: main.o buzzer.o lightControl-s.o
+main-s.elf: main.o buzzer.o switch.o stateMachine.o lightControl-s.o
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ ./lib/libTimer.a
 
 load: main.elf
@@ -27,9 +27,11 @@ clean: $^
 
 
 buzzer.o: buzzer.h
-main.o: buzzer.h led.h sheetMusic.h
+switch.o: switch.h stateMachine.h
+stateMachine.o: stateMachine.h buzzer.h led.h switch.h sheetMusic.h
+main.o: buzzer.h led.h switch.h
 lightControl-c.o: led.h
 lightControl-s.o: led.h
 
-wdInterruptHandler.o: led.h
+wdInterruptHandler.o: stateMachine.h
 
