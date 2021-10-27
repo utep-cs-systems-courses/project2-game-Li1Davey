@@ -11,11 +11,11 @@ void led_init(){
   P1OUT &= ~LEDS;
 }
 void wdt_init(){
-  configureClocks();
-  enableWDTInterrupts();
+  configureClocks(); /* setup master oscillator, CPU & peripheral clocks */
+  enableWDTInterrupts(); /* enable periodic interrupt */
 }
 
-int main() {
+int main() { // Initialize everything at the start
     switch_init();
     led_init();
     buzzer_init();
