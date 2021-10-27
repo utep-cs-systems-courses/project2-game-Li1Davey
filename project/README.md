@@ -1,7 +1,7 @@
 ## Description
 This Program allows you to play two songs, play the solfa method going to the
 highest not then back to the lowest note, and completely stop the song that is
-playing. This is Done by pressing 4 buttons on the green board.
+playing. This is done by pressing 4 buttons on the green board.
 
 Press S1 to play America (My Country, 'Tis of Thee).
 
