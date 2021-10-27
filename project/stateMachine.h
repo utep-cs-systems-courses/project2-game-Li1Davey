@@ -10,4 +10,4 @@ void blinkCounter();
 void stateChange(int state);
 void timeSM();
 
-#endif // included
+#endif
