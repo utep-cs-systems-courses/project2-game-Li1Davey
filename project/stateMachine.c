@@ -8,23 +8,22 @@
 
 int button = 0;
 
-//int playAmerica = 0;
 int halfCountAma = 0;
 int playAma = 2;
 int indAma = 0;
 int holdAma = 0;
 
-void americaUpdate(){//edit play
+void americaUpdate(){ //Play the America Song
   if(playAma > 1){
     playAma --;
   }
   else if (playAma == 1){
     playAma = 0;
-    if(americaNotes[indAma] > 0){
+    if(americaNotes[indAma] > 0){ //Turns the Green LED on if buzzer cycle is not zero.
       lightControl(1);
     }
     else{
-      lightControl(2);
+      lightControl(2); //Turns the Red LED on if the buzzer cycle is zero.
     }
     buzzer_set_period(americaNotes[indAma]);
     holdAma = americaHold[indAma];
@@ -52,13 +51,12 @@ void americaCounter(){
   }
 }
 
-//int playHallowen = 0;
 int halfCountHal = 0;
 int playHal = 2;
 int indHal = 0;
 int holdHal = 0;
 
-void halloweenUpdate(){//edit play
+void halloweenUpdate(){ //Plays Halloween song
   if(playHal > 1){
     playHal --;
   }
@@ -79,7 +77,7 @@ void halloweenUpdate(){//edit play
 }
 
 void halloweenCounter(){
-  //For every half second
+  //For every qurater second
   halfCountHal ++;
   
   if(halfCountHal >= 62){
@@ -96,8 +94,6 @@ void halloweenCounter(){
   }
 }
 
-
-//int musicAndLights = 0;
 int secondCount = 0;
 int blinkCount = 0;
 int blinkLimit = 0;
@@ -127,20 +123,20 @@ void blinkCounter(){
     secondCount = 0;
     if(!getDim){
       blinkLimit ++;
-      if (blinkLimit >= 7){
+      if (blinkLimit >= 7){ //when blink limit reaches highest limit it will tell the blink counter to make the LED dimmer
 	getDim = 1;
       }
     }
     else{
       blinkLimit--;
       if(blinkLimit <= -1){
-	button = 4;
+	button = 4; //Stops everyting
       }
     }
   }
 }
 
-void stopUpdates(){
+void stopUpdates(){ //Turns off the buzzer and LEDs and reutrns all initial variables to their original value to start over
   halfCountAma = 0;
   playAma = 2;
   indAma = 0;
@@ -177,7 +173,7 @@ void stateChange(int state){
   }
 }
 
-void timeSM(){
+void timeSM(){ //Changes the method based on the button pressed
   switch(button){
   case 1:
     americaUpdate();
