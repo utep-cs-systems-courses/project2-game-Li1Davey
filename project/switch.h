@@ -5,7 +5,7 @@
 #define SW2 BIT1
 #define SW3 BIT2
 #define SW4 BIT3
-#define SWITCHES (SW1 |  SW2 |  SW3 | SW4) //(0xF)
+#define SWITCHES (SW1 |  SW2 |  SW3 | SW4) //(0xF) can also be used
 
 
 void switch_init();
