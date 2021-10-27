@@ -1,5 +1,5 @@
 # makfile configuration
-COMMON_OBJECTS  = main.o
+COMMON_OBJECTS  = main.o buzzer.o switch.o stateMachine.o
 CPU             = msp430g2553
 CFLAGS          = -mmcu=${CPU} -I./h -L/opt/ti/msp430_gcc/include
 
@@ -10,10 +10,10 @@ AS              = msp430-elf-as
 all: main.elf 
 
 #additional rules for files
-main.elf: main.o buzzer.o switch.o stateMachine.o lightControl-c.o
+main.elf: ${COMMON_OBJECTS} lightControl-c.o
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ ./lib/libTimer.a
 
-main-s.elf: main.o buzzer.o switch.o stateMachine.o lightControl-s.o
+main-s.elf: ${COMMON_OBJECTS} lightControl-s.o
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ ./lib/libTimer.a
 
 load: main.elf
